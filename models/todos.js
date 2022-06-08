@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 var todoSchema = new Schema({
-  id: {
+  _id: {
     type: Number,
     required: true,
     unique: true,

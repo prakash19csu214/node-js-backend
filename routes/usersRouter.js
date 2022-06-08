@@ -33,7 +33,7 @@ const req = http
 userRouter.use(bodyParser.json());
 
 userRouter.route("/").get((req, res, next) => {
-  Users.find({}, { _id: 0 })
+  Users.find({})
     .then(
       (user) => {
         res.statusCode = 200;
@@ -45,13 +45,13 @@ userRouter.route("/").get((req, res, next) => {
     .catch((err) => next(err));
 });
 
-userRouter.route("/:userId").get((req, res, next) => {
-  Users.findById(req.params.userId, { _id: 0 })
+userRouter.route("/:id").get((req, res, next) => {
+  Users.findById(req.params.id)
     .then(
-      (leader) => {
+      (user) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
-        res.json(leader);
+        res.json(user);
       },
       (err) => next(err)
     )

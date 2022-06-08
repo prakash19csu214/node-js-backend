@@ -36,7 +36,7 @@ const req = http.request(options, (res) => {
 todoRouter
   .route("/")
   .get((req, res, next) => {
-    Todos.find({},{_id:0})
+    Todos.find({})
       .then(
         (todo) => {
           res.statusCode = 200;
